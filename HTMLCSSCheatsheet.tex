@@ -1,0 +1,469 @@
+%
+%  handleidinghuis
+%
+%  Created by Niels Doorn on 2010-07-04.
+%  Copyright (c) 2010 __MyCompanyName__. All rights reserved.
+%
+\documentclass[8pt,pagesize,footinclude=false,headinclude=false]{scrartcl}
+
+
+% Copyright (C) 2008, 2009, 2010 Bert Burgemeister
+%
+% Permission is granted to copy, distribute and/or modify this
+% document under the terms of the GNU Free Documentation License,
+% Version 1.2 or any later version published by the Free Software
+% Foundation; with no Invariant Sections, no Front-Cover Texts and
+% no Back-Cover Texts. For details see file COPYING.
+%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{textcase}
+\usepackage{textcomp}
+\usepackage{ulem}
+\usepackage[usenames,dvips]{color}
+\usepackage{suffix}
+\usepackage{makeidx}
+\usepackage[pagestyles]{titlesec}
+\usepackage{titletoc}
+%
+%%%%%%%%%%%%%%%%%%
+% Two font alternatives:
+% (A) All (except cover pages) Computer Modern --
+%     everything comes from the same sound root; gets about 5% longer
+%     than alternative (B) 
+\usepackage{type1cm}
+\usepackage{exscale}
+%%%%%%%%%%%%%%%%%%
+% (B) Times mixed with Helvetica --
+%     different sources; need scaling as they don't even agree in
+%     their concept of height
+%\usepackage{mathptmx}
+%\usepackage[scaled]{helvet}
+%%%%%%%%%%%%%%%%%%
+%
+
+
+% outsourced page dimensions for A4 paper
+%\setlength{\paperwidth}{10.5cm}
+%\setlength{\paperheight}{29.7cm}
+%%\areaset[10mm]{8cm}{29cm}
+%\typearea[3mm]{20}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+\usepackage[dutch]{babel}
+
+\usepackage[a4paper,landscape]{geometry}
+%\usepackage[a4paper,hmargin=1cm,vmargin=1cm]{geometry}
+\usepackage{multicol}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+
+\usepackage{eurosym}
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+% Package for including code in the document
+\usepackage{listings}
+
+% If you want to generate a toc for each chapter (use with book)
+\usepackage{minitoc}
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+\definecolor{lightgray}{rgb}{0.01,0.01,0.01}
+
+\title{HTML CSS Cheatsheet}
+\author{Niels Doorn}
+\date{\today}
+
+\usepackage[bookmarks=true,pdftex,bookmarksopen=true,bookmarksnumbered=true,pdfborder={0 0 0 0}]{hyperref}
+
+
+\titleformat{\section}{\sffamily\mdseries\slshape}
+            {\huge\thesection}{.7em}{\huge}[{\titlerule[0.25pt]}]
+            
+\titleformat{\subsection}{\sffamily\mdseries\slshape}
+            {\Large\thesubsection}{.7em}{\Large}[{\titlerule[0.25pt]}]
+
+
+\lstset{
+        basicstyle=\footnotesize\ttfamily, % Standardschrift
+        %numbers=left,               % Ort der Zeilennummern
+        numberstyle=\tiny,          % Stil der Zeilennummern
+        %stepnumber=2,               % Abstand zwischen den Zeilennummern
+        numbersep=5pt,              % Abstand der Nummern zum Text
+        tabsize=2,                  % Groesse von Tabs
+        extendedchars=true,         %
+        breaklines=true,            % Zeilen werden Umgebrochen
+        keywordstyle=\bfseries,
+		commentstyle=\em\color{gray},
+        frame=trlb,         
+%        keywordstyle=[1]\textbf,    % Stil der Keywords
+%        keywordstyle=[2]\textbf,    %
+%        keywordstyle=[3]\textbf,    %
+%        keywordstyle=[4]\textbf,   \sqrt{\sqrt{}} %
+        stringstyle=\bfseries\color{gray}, % Farbe der String
+        showspaces=false,           % Leerzeichen anzeigen ?
+        showtabs=false,             % Tabs anzeigen ?
+        xleftmargin=0pt,
+        framexleftmargin=0pt,
+        framexrightmargin=0pt,
+        framexbottommargin=0pt,
+        %backgroundcolor=\color{lightgray},
+        showstringspaces=false      % Leerzeichen in Strings anzeigen ?        
+}
+\lstloadlanguages{% Check Dokumentation for further languages ...
+         %[Visual]Basic
+         %Pascal
+         %C
+         %C++
+         XML,
+         HTML,
+         Java,
+         PHP
+}
+
+\hypersetup{
+	pdfauthor = {Niels Doorn},
+	pdftitle = {HTML en CSS Cheatsheet},
+	pdfsubject = {HTML, CSS},
+	pdfkeywords = {HTML,css,cheatsheet},
+	pdfcreator = {NielsDoorn/RocVanTwente}
+}
+
+\usepackage{pst-barcode}
+
+\begin{document}
+
+\ifpdf
+\DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+\else
+\DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\begin{multicols*}{4}
+
+\section*{HTML \& CSS Cheatsheets}
+Deze cheatsheet bevat de meest belangrijke HTML tags en CSS eigenschappen voor het vak webdesign in het eerste jaar. Het geeft een overzicht en voorbeelden van de tags die je veel zult gebruiken.
+
+\section*{HTML}
+HTML bestaat uit tags die door de browser worden begrepen. Iedere tag heeft zo z'n eigen specifieke eigenschappen en functionaliteit. Een aantal tags komen altijd voor in een pagina en sommige tags gebruik je alleen als je ze nodig hebt.
+\subsection*{Minimale HTML pagina}
+Ieder HTML pagina moet voldoen aan een bepaalde structuur. Hieronder een minimale pagina in HTML.
+\lstinputlisting{code/minimal.html}
+HTML: HTML document\\
+HEAD: Informatie over de pagina\\
+BODY: Inhoud van de pagina
+
+\subsection*{Stylesheet koppelen}
+Plaats in de HEAD:
+\begin{lstlisting}
+	<link href="style.css" type="text/css" rel="stylesheet" />
+\end{lstlisting}
+\noindent Of:
+\begin{lstlisting}
+<style type="text/css">
+@import url("style.css");
+</style>
+\end{lstlisting}
+\noindent Beide voegen een stylesheet toe aan je pagina. Gebruik liever geen inline CSS code maar altijd een aparte stylesheet.
+
+\subsection*{Commentaar}
+Commentaar in HTML:
+\begin{lstlisting}
+<!--
+commentaar
+-->
+\end{lstlisting}
+
+\subsection*{Tekst}
+Headings:
+\begin{lstlisting}
+<h1>Titel niveau 1</h1>
+<h2>Titel niveau 2</h2>
+...
+<h6>Titel niveau 6</h6>
+\end{lstlisting}
+
+\noindent Tekstopmaak:
+\begin{lstlisting}
+<strong>Vet gedrukt</strong>
+<em>Schuingedrukt</em>
+<blockquote>Lang citaat</blockquote>
+<q>Kort citaat</q>
+\end{lstlisting}
+
+\noindent Tekstindeling:
+\begin{lstlisting}
+<p>Paragraaf</p>
+<br /> Nieuwe regel
+\end{lstlisting}
+
+\subsection*{Pagina-indeling}
+Div'jes gebruik je om de inhoud van je pagina op te delen in logische gebieden. Vervolgens kun je die met CSS een plaats, afmeting en andere eigenschappen geven. 
+\begin{lstlisting}
+<div>Een gebied op een pagina, bijvoorbeeld een kolom</div>
+\end{lstlisting}
+
+\subsection*{Afbeeldingen}
+Een afbeelding in HTML het src attribuut verwijst naar het bestand wat je wilt laten zien.
+\begin{lstlisting}
+<img src="plaatje.jpg" />
+\end{lstlisting}
+
+\subsection*{Links}
+Linkjes werken op de volgende manier. Eerst geef je in de A tag aan naar welke pagina je wilt linken met het href attribuut. Daarna plaats je tussen de begin en eind tag tekst of een afbeelding waar je op wilt klikken. In de onderstaande code is dat `Contactpagina'.
+
+\begin{lstlisting}
+<a href="contact.html">Contactpagina</a>
+\end{lstlisting}
+
+\subsection*{Lijstjes}
+In HTML zijn er twee belangrijke soorten lijstjes. Lijstjes die genummerd zijn (ge-ordend) en lijstjes met bullets (ongeordend).
+
+\subsubsection*{Ongeordende lijsten}
+Unordered list (boodschappenlijstje): 
+\begin{lstlisting}
+<ul>
+	<li>Banaan</li>
+	<li>Aardbei</li>
+	<li>Appel</li>
+</ul>
+\end{lstlisting}
+
+\subsubsection*{Genummerde lijsten}
+Een ordered list (grootste steden ter wereld):
+\begin{lstlisting}
+<ol>
+	<li>Shanghai</li>
+	<li>Bombay</li>
+	<li>Karachi</li>
+	<li>Istanboel</li>
+	<li>Delhi</li>
+</ol>
+\end{lstlisting}
+
+\subsubsection*{Definitie lijsten}
+Minder vaak gebruikt maar ook handig is de lijst met definities:
+\begin{lstlisting}
+<dl>
+	<dt>Koffie</dt>
+		<dd>Het zwarte goud, onmisbaar voor goed functioneren docenten</dd>
+	<dt>Melk</dt>
+		<dd>De witte motor</dd>
+</dl>
+\end{lstlisting}
+\noindent De DT tag geeft een woord waarvan je de definitie wilt geven (koffie). De daarop volgende DD tag geeft de definitie.
+
+\subsubsection*{Lijsten met meeerdere niveaus}
+Je kunt verschillende niveaus aanbrengen in lijstjes.
+
+\begin{lstlisting}
+<ul>
+  <li>Koffie</li>
+  <li>Thee
+    <ul>
+    <li>Zwarte thee</li>
+    <li>Groene thee</li>
+    </ul>
+  </li>
+  <li>Melk</li>
+</ul>
+\end{lstlisting}
+
+\subsection*{Handige websites}
+Er zijn veel sites met informatie over HTML, deze twee worden veel gebruikt.
+\begin{itemize}
+	\item Lorem Ipsum generator \url{http://bit.ly/3Ukgp} 
+	\item W3Schools \url{http://bit.ly/PkhA}
+\end{itemize}
+
+\clearpage
+
+\section*{CSS}
+Cascading Stylesheets (CSS) gebruik je voor het vormgeven van de website. 
+
+\subsection*{Begin van een CSS file}
+\begin{lstlisting}
+@charset "utf-8";
+\end{lstlisting}
+
+\subsection*{Commentaar in CSS}
+\begin{lstlisting}
+/* commentaar */
+\end{lstlisting}
+
+\subsection*{CSS selectoren}
+In CSS selecteer je de HTML elementen die je wilt vormgeven en vervolgens geef je aan hoe die elementen vormgegeven moeten worden.
+
+\noindent Selecteren op TAG
+\begin{lstlisting}
+body {
+}
+div {
+}
+\end{lstlisting}
+
+\noindent Selecteren op class (een class mag meerdere keren voorkomen op een HTML pagina)
+\begin{lstlisting}
+.menu-item {
+}
+\end{lstlisting}
+\noindent Bijbehorende HTML code:
+\begin{lstlisting}
+<div class="menu-item"></div>
+\end{lstlisting}
+
+\noindent Selecteren op id (een id mag slechts een keer voorkomen op een pagina)
+\begin{lstlisting}
+#header {
+}
+\end{lstlisting}
+\noindent Bijbehorende HTML code:
+\begin{lstlisting}
+<div id="header"></div>
+\end{lstlisting}
+
+\noindent Selecteren op type en id (een div met het id header)
+\begin{lstlisting}
+div#header {
+}
+\end{lstlisting}
+
+\noindent Selecteren op type en class (alle divs met de klasse menu-item)
+\begin{lstlisting}
+div.menu-item {
+}
+\end{lstlisting}
+
+\subsection*{Kleuren}
+Achtergrondkleur, font kleur
+\begin{lstlisting}
+#inhoud {
+	background-color: #0C9;
+	color: white;
+}
+\end{lstlisting}
+
+\subsection*{Padding}
+De ruimte die aan de binnenkant wordt vrijgehouden.
+\begin{lstlisting}
+#inhoud {
+	padding-top: 10px; 
+	/* alleen bovenaan 10px */
+}
+\end{lstlisting}
+\noindent Of:
+\begin{lstlisting}
+#inhoud {
+	padding: 10px; 
+	/* rondom 10px */
+}
+\end{lstlisting}
+\noindent Of:
+\begin{lstlisting}
+#inhoud {
+	padding: 10px 0px 15px 0px; 
+	/* top, right, bottom, left */
+}
+\end{lstlisting}
+
+\subsection*{Borders}
+Sommige elementen, zoals DIV'jes kunnen ook worden voorzien van een border.
+\begin{lstlisting}
+div#sidebar {
+	border-width: 1px;
+	border-style: dashed;
+	border-color: black;
+}
+\end{lstlisting}
+
+\noindent Of geen borders:
+
+\begin{lstlisting}
+div#sidebar {
+	border: none;
+}
+\end{lstlisting}
+
+\subsection*{Margin}
+De ruimte die aan de buitenkant wordt vrijgehouden. Zie padding.
+\begin{lstlisting}
+	margin-top: 10px; 
+	/* alleen bovenaan 10px */
+	
+	margin: 10px; 
+	/* of rondom 10px */
+	
+	margin: 10px 0px 15px 0px; 
+	/* of top, right, bottom, left */
+\end{lstlisting}
+
+\subsection*{Afmetingen}
+In pixels:
+\begin{lstlisting}
+#inhoud {
+	width:300px;
+	height: 400px;
+}
+\end{lstlisting}
+
+\noindent In procenten:
+\begin{lstlisting}
+#inhoud {
+	width:50%;
+	height:20%;
+}
+\end{lstlisting}
+
+\subsection*{Positionering}
+Float gebruik je o.a. om een DIV naast een andere DIV te plaatsen
+\begin{lstlisting}
+#inhoud {
+	float:left;
+}
+\end{lstlisting}
+\noindent Of:
+\begin{lstlisting}
+#inhoud {
+	float:right;
+}
+\end{lstlisting}
+
+\subsection*{Kolommen omhoog pushen}
+Met een clear both krijg je een div onder de andere divs.
+\begin{lstlisting}
+#footer {
+	clear:both;
+}
+\end{lstlisting}
+
+\subsection*{Een DIV centreren}
+\begin{lstlisting}
+div#container {
+	width:850px;
+	min-heigth:720px;
+	margin-left:auto;
+	margin-right:auto;
+}
+\end{lstlisting}
+
+\subsection*{Achtergrondafbeelding}
+\begin{lstlisting}
+div#header {
+	height:140px;
+	background-image:url(achtergrond.jpg);
+}
+\end{lstlisting}
+
+\end{multicols*}
+\end{document}
