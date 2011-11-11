@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/* CSS Document */
+
+div#container {
+	width:850px; 		// breedte van de pagina
+	margin-left:auto;  	// pagina centreren
+	margin-right:auto; 	// pagina centreren
+}
+
+div#header {
+	height:140px; 		// hoogte van de header
+	background-image:url(fern.jpg); // achtergrond afbeelding!
+}
+
+div#logo {
+	width:100px;		// logo breedte
+	height:100px;		// logo hoogte
+	background-color:#666; // in het echt een afbeelding, nu even een kleur
+	color:white;
+}
+
+div#menu {
+	background-color: #09C;
+	height:40px;
+}
+
+/*
+menu items komen vaker voor dus een class i.p.v. een id
+*/
+div.menu-item {
+	color:white;
+	height:30px;
+	float:left;				// float left zorgt ervoor dat ze naast elkaar komen te staan
+	width:100px;
+	padding-top:10px;	 	// tekst iets meer naar onder
+	padding-left:10px;		// tekst iets van de linkerkant af
+}
+
+div#sidebar {
+	color:white;
+	width:250px;
+	height:480px;
+	float:left;				// float left zodat sidebar links komt te staan
+	background-color:#669;
+}
+
+div#hoofdtekst {
+	color:white;
+	width:600px;			// sidebar = 250px + 600px = 850px (is breedte container)
+	height:480px;
+	float:left;				// float left i.c.m. breedte zodat niet breder dan container
+	background-color:#99C;
+}
