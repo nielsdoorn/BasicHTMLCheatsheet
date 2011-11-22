@@ -105,7 +105,7 @@
         extendedchars=true,         %
         breaklines=true,            % Zeilen werden Umgebrochen
         keywordstyle=\bfseries,
-		commentstyle=\em\color{gray},
+		%commentstyle=\em\color{gray},
         frame=trlb,         
 %        keywordstyle=[1]\textbf,    % Stil der Keywords
 %        keywordstyle=[2]\textbf,    %
@@ -166,33 +166,33 @@
 \begin{multicols*}{4}
 
 \section*{HTML \& CSS Cheatsheets}
-Deze cheatsheet bevat de meest belangrijke HTML tags en CSS eigenschappen voor het vak webdesign in het eerste jaar. Het geeft een overzicht en voorbeelden van de tags die je veel zult gebruiken.
+Deze cheatsheet bevat de meest belangrijke HTML tags en CSS eigenschappen voor het vak webdesign in het eerste jaar.
 
 \section*{HTML}
-HTML bestaat uit tags die door de browser worden begrepen. Iedere tag heeft zo z'n eigen specifieke eigenschappen en functionaliteit. Een aantal tags komen altijd voor in een pagina en sommige tags gebruik je alleen als je ze nodig hebt.
+HTML vormt de structuur en de inhoud van een pagina en bestaat uit tags die door de browser worden begrepen. Iedere tag heeft zo z'n eigen specifieke eigenschappen en functionaliteit. Een aantal tags komen altijd voor in een pagina en sommige tags gebruik je alleen als je ze nodig hebt.
 \subsection*{Minimale HTML pagina}
 Ieder HTML pagina moet voldoen aan een bepaalde structuur. Hieronder een minimale pagina in HTML.
 \lstinputlisting{code/minimal.html}
-HTML: HTML document\\
-HEAD: Informatie over de pagina\\
-BODY: Inhoud van de pagina
+HTML tag: HTML document\\
+HEAD tag: Informatie over de pagina\\
+BODY tag: Inhoud van de pagina
 
-\subsection*{Stylesheet koppelen}
+\subsection*{Een CSS stylesheet koppelen}
 Plaats in de HEAD:
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 	<link href="style.css" type="text/css" rel="stylesheet" />
 \end{lstlisting}
 \noindent Of:
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <style type="text/css">
 @import url("style.css");
 </style>
 \end{lstlisting}
-\noindent Beide voegen een stylesheet toe aan je pagina. Gebruik liever geen inline CSS code maar altijd een aparte stylesheet.
+\noindent Beiden voegen een stylesheet toe aan de pagina. Gebruik \underline{nooit} inline CSS maar \underline{altijd} een aparte stylesheet.
 
 \subsection*{Commentaar}
 Commentaar in HTML:
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <!--
 commentaar
 -->
@@ -200,7 +200,7 @@ commentaar
 
 \subsection*{Tekst}
 Headings:
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <h1>Titel niveau 1</h1>
 <h2>Titel niveau 2</h2>
 ...
@@ -208,7 +208,7 @@ Headings:
 \end{lstlisting}
 
 \noindent Tekstopmaak:
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <strong>Vet gedrukt</strong>
 <em>Schuingedrukt</em>
 <blockquote>Lang citaat</blockquote>
@@ -216,27 +216,27 @@ Headings:
 \end{lstlisting}
 
 \noindent Tekstindeling:
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <p>Paragraaf</p>
 <br /> Nieuwe regel
 \end{lstlisting}
 
 \subsection*{Pagina-indeling}
 Div'jes gebruik je om de inhoud van je pagina op te delen in logische gebieden. Vervolgens kun je die met CSS een plaats, afmeting en andere eigenschappen geven. 
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <div>Een gebied op een pagina, bijvoorbeeld een kolom</div>
 \end{lstlisting}
 
 \subsection*{Afbeeldingen}
 Een afbeelding in HTML het src attribuut verwijst naar het bestand wat je wilt laten zien.
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <img src="plaatje.jpg" />
 \end{lstlisting}
 
 \subsection*{Links}
 Linkjes werken op de volgende manier. Eerst geef je in de A tag aan naar welke pagina je wilt linken met het href attribuut. Daarna plaats je tussen de begin en eind tag tekst of een afbeelding waar je op wilt klikken. In de onderstaande code is dat `Contactpagina'.
 
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <a href="contact.html">Contactpagina</a>
 \end{lstlisting}
 
@@ -245,7 +245,7 @@ In HTML zijn er twee belangrijke soorten lijstjes. Lijstjes die genummerd zijn (
 
 \subsubsection*{Ongeordende lijsten}
 Unordered list (boodschappenlijstje): 
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <ul>
 	<li>Banaan</li>
 	<li>Aardbei</li>
@@ -255,7 +255,7 @@ Unordered list (boodschappenlijstje):
 
 \subsubsection*{Genummerde lijsten}
 Een ordered list (grootste steden ter wereld):
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <ol>
 	<li>Shanghai</li>
 	<li>Bombay</li>
@@ -267,7 +267,7 @@ Een ordered list (grootste steden ter wereld):
 
 \subsubsection*{Definitie lijsten}
 Minder vaak gebruikt maar ook handig is de lijst met definities:
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <dl>
 	<dt>Koffie</dt>
 		<dd>Het zwarte goud, onmisbaar voor goed functioneren docenten</dd>
@@ -280,7 +280,7 @@ Minder vaak gebruikt maar ook handig is de lijst met definities:
 \subsubsection*{Lijsten met meeerdere niveaus}
 Je kunt verschillende niveaus aanbrengen in lijstjes.
 
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <ul>
   <li>Koffie</li>
   <li>Thee
@@ -368,7 +368,7 @@ Achtergrondkleur, font kleur
 \end{lstlisting}
 
 \subsection*{Padding}
-De ruimte die aan de binnenkant wordt vrijgehouden.
+De ruimte die aan de \underline{binnenkant} wordt vrijgehouden.
 \begin{lstlisting}
 #inhoud {
 	padding-top: 10px; 
@@ -390,6 +390,19 @@ De ruimte die aan de binnenkant wordt vrijgehouden.
 }
 \end{lstlisting}
 
+\subsection*{Margin}
+De ruimte die aan de \underline{buitenkant} wordt vrijgehouden. Zie padding.
+\begin{lstlisting}
+	margin-top: 10px; 
+	/* alleen bovenaan 10px */
+	
+	margin: 10px; 
+	/* of rondom 10px */
+	
+	margin: 10px 0px 15px 0px; 
+	/* of top, right, bottom, left */
+\end{lstlisting}
+
 \subsection*{Borders}
 Sommige elementen, zoals DIV'jes kunnen ook worden voorzien van een border.
 \begin{lstlisting}
@@ -406,19 +419,6 @@ div#sidebar {
 div#sidebar {
 	border: none;
 }
-\end{lstlisting}
-
-\subsection*{Margin}
-De ruimte die aan de buitenkant wordt vrijgehouden. Zie padding.
-\begin{lstlisting}
-	margin-top: 10px; 
-	/* alleen bovenaan 10px */
-	
-	margin: 10px; 
-	/* of rondom 10px */
-	
-	margin: 10px 0px 15px 0px; 
-	/* of top, right, bottom, left */
 \end{lstlisting}
 
 \subsection*{Afmetingen}
