@@ -298,11 +298,31 @@ Je kunt verschillende niveaus aanbrengen in lijstjes.
 </ul>
 \end{lstlisting}
 
+\subsection*{Formulieren}
+Formulieren gebruik je om gegevens van de gebruiker naar een website te versturen. Een bezoeker kan bijvoorbeeld een contactformulier invullen en versturen via een website.
+
+Een formulier bevat invulvelden met labels en knoppen. Een formulier kan met POST en met GET worden verstuurd naar een URL.
+
+\begin{lstlisting}[language=HTML]
+<form action="informatieaanvraag.php" method="post">
+	<label for="voornaam">Voornaam:</label>
+	<input type="text" name="voornaam" />
+	<label for="achternaam">Achternaam:</label>
+	<input type="text" name="achternaam" />
+	<label for="bericht">Uw vraag of bericht:</label>
+	<textarea name="bericht"></textarea>
+	<input type="submit" value="verzenden" />
+</form>
+\end{lstlisting}
+
 \subsection*{Handige websites}
-Er zijn veel sites met informatie over HTML, deze twee worden veel gebruikt.
+Er zijn veel sites met informatie over HTML en CSS, hier een paar voorbeelden:
 \begin{itemize}
-	\item Lorem Ipsum generator \url{http://bit.ly/3Ukgp} 
-	\item W3Schools \url{http://bit.ly/PkhA}
+	\item Lorem Ipsum generator \url{http://bit.ly/3Ukgp}
+	\item Dabblet \url{dabblet.com}
+	\item Mozilla Developers Network \url{http://goo.gl/UzgJQ}
+	\item MDN HTML reference \url{http://goo.gl/JRZ0P}
+	\item MDN CSS reference \url{http://goo.gl/EeWJe}
 \end{itemize}
 
 \clearpage
