@@ -1,0 +1,1 @@
+Deze cheatsheet bevat de meest belangrijke HTML tags en CSS eigenschappen voor het vak webdesign in het eerste jaar.
