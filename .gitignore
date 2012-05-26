@@ -1,0 +1,7 @@
+*.aux
+*.gz
+*.maf
+*.log
+*.mtc*
+
+HTMLCSSCheatsheet.out

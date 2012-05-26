@@ -169,16 +169,23 @@
 Deze cheatsheet bevat de meest belangrijke HTML tags en CSS eigenschappen voor het vak webdesign in het eerste jaar.
 
 \section*{HTML}
-HTML vormt de structuur en de inhoud van een pagina en bestaat uit tags die door de browser worden begrepen. Iedere tag heeft zo z'n eigen specifieke eigenschappen en functionaliteit. Een aantal tags komen altijd voor in een pagina en sommige tags gebruik je alleen als je ze nodig hebt.
+HTML vormt de structuur en de inhoud van een pagina en bestaat uit tags die door de browser worden begrepen. Iedere tag heeft zo z'n eigen specifieke eigenschappen en functionaliteit. Een tag staat tussen scherpe haken < >, bijvoorbeeld een <div> tag. Een aantal tags komen altijd voor in een pagina en sommige tags gebruik je alleen als je ze nodig hebt. Iedere tag die je opent moet je ook weer afsluiten. Dat kan op twee manieren:
+\begin{lstlisting}[language=HTML]
+	<!-- openen en later sluiten -->
+	<div> </div>
+	<!-- openen en direct sluiten -->
+	<br />
+\end{lstlisting}
 \subsection*{Minimale HTML pagina}
-Ieder HTML pagina moet voldoen aan een bepaalde structuur. Hieronder een minimale pagina in HTML.
+Hieronder een minimale pagina in HTML, deze structuur heb je altijd nodig.
 \lstinputlisting{code/minimal.html}
 HTML tag: HTML document\\
 HEAD tag: Informatie over de pagina\\
 BODY tag: Inhoud van de pagina
 
 \subsection*{Een CSS stylesheet koppelen}
-Plaats in de HEAD:
+Aan de HTML pagina kan je een CSS stylesheet koppelen voor de vormgeving.\\
+\noindent Plaats binnen de HEAD tags:
 \begin{lstlisting}[language=HTML]
 	<link href="style.css" type="text/css" rel="stylesheet" />
 \end{lstlisting}
@@ -315,21 +322,9 @@ Een formulier bevat invulvelden met labels en knoppen. Een formulier kan met POS
 </form>
 \end{lstlisting}
 
-\subsection*{Handige websites}
-Er zijn veel sites met informatie over HTML en CSS, hier een paar voorbeelden:
-\begin{itemize}
-	\item Lorem Ipsum generator \url{http://bit.ly/3Ukgp}
-	\item Dabblet \url{dabblet.com}
-	\item Mozilla Developers Network \url{http://goo.gl/UzgJQ}
-	\item MDN HTML reference \url{http://goo.gl/JRZ0P}
-	\item MDN CSS reference \url{http://goo.gl/EeWJe}
-\end{itemize}
-
 \clearpage
 
 \section*{CSS}
-Cascading Stylesheets (CSS) gebruik je voor het vormgeven van de website. 
-
 \subsection*{Begin van een CSS file}
 \begin{lstlisting}
 @charset "utf-8";
@@ -516,6 +511,48 @@ HTML met een UL als menu:
 \end{lstlisting}
 CSS style:
 \lstinputlisting{code/menu.css}
+
+\clearpage
+
+\section*{Meer over CSS selectoren}
+Een HTML pagina is een boomstructuur van tags. Je kunt zeggen dat iedere tag (behalve de HTML tag) een kind is van een andere tag. CSS biedt veel mogelijkheden om specifieke tags te selecteren op basis van deze structuur. Bijvoorbeeld alle h1 elementen binnen een div met een bepaalde class. Of alle oneven list items.
+
+\subsection*{Selectie van childs en descendants}
+Een descendants selector gebruik je voor het selecteren van alle elementen binnen een ander element (meerdere niveaus diep).
+
+Een child selector gebruik je voor het selecteren van directe kinderen binnen een element (een niveau diep).\\
+\noindent Voorbeeld HTML:
+\begin{lstlisting}
+	<div class="kolom">
+		<h1>Agenda</h1>
+		<div class="widget">
+			<h1>Kalender</h1>
+		</div>
+	</div>
+\end{lstlisting}
+
+\noindent CSS:
+\begin{lstlisting}
+/* child selector: selecteer alleen de agenda H1 in de kolom, niet de kalender H1 */
+.kolom > h1 {
+	color: blue;
+}
+
+/* descendants selector: selecteer alle h1 elementen binnen de kolom (agenda en kalender) */
+.kolom h1 {
+	font-size: 18pt;
+}
+\end{lstlisting}
+
+\subsection*{Handige websites}
+Er zijn veel sites met informatie over HTML en CSS, hier een paar voorbeelden:
+\begin{itemize}
+	\item Lorem Ipsum generator \url{http://bit.ly/3Ukgp}
+	\item Dabblet \url{dabblet.com}
+	\item Mozilla Developers Network \url{http://goo.gl/UzgJQ}
+	\item Moz. HTML reference \url{http://goo.gl/JRZ0P}
+	\item Moz. CSS reference \url{http://goo.gl/EeWJe}
+\end{itemize}
 
 \end{multicols*}
 \end{document}
