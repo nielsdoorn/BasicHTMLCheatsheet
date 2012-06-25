@@ -81,7 +81,7 @@
 
 \definecolor{lightgray}{rgb}{0.01,0.01,0.01}
 
-\title{HTML CSS Cheatsheet}
+\title{HTML en CSS Cheatsheet}
 \author{Niels Doorn}
 \date{\today}
 
@@ -146,7 +146,7 @@
 \rhead{}
 \lhead{}
 \chead{}
-\lfoot{Niels Doorn \copyright~2012}
+\lfoot{Versie 0.6 - Niels Doorn \copyright~2012}
 \cfoot{\url{http://www.nielsdoorn.nl}}
 \rfoot{\thepage\ van \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
@@ -165,7 +165,7 @@
 
 \begin{multicols*}{4}
 
-\section*{HTML \& CSS Cheatsheets}
+\section*{HTML \& CSS Cheatsheet}
 Deze cheatsheet bevat de meest belangrijke HTML tags en CSS eigenschappen voor het vak webdesign in het eerste jaar.
 
 \section*{HTML}
@@ -189,13 +189,7 @@ Aan de HTML pagina kan je een CSS stylesheet koppelen voor de vormgeving.\\
 \begin{lstlisting}[language=HTML]
 	<link href="style.css" rel="stylesheet" />
 \end{lstlisting}
-\noindent Of:
-\begin{lstlisting}[language=HTML]
-<style type="text/css">
-@import url("style.css");
-</style>
-\end{lstlisting}
-\noindent Beiden voegen een stylesheet toe aan de pagina. Gebruik \underline{nooit} inline CSS maar \underline{altijd} een aparte stylesheet.
+\noindent Gebruik in principe \underline{nooit} inline CSS maar \underline{altijd} een aparte stylesheet in een apart bestand.
 
 \subsection*{Commentaar}
 Commentaar in HTML:
@@ -234,19 +228,19 @@ CO<sub>2</sub> subscript
 \end{lstlisting}
 
 \subsection*{Pagina-indeling}
-Div'jes gebruik je om de inhoud van je pagina op te delen in logische gebieden. Vervolgens kun je die met CSS een plaats, afmeting en andere eigenschappen geven. 
+Div'jes gebruik je om de inhoud van je pagina op te delen in gebieden. Vervolgens kun je die met CSS een plaats, afmeting en andere eigenschappen geven. 
 \begin{lstlisting}[language=HTML]
 <div>Een gebied op een pagina, bijvoorbeeld een kolom</div>
 \end{lstlisting}
 
 \subsection*{Afbeeldingen}
-Een afbeelding in HTML het src attribuut verwijst naar het bestand wat je wilt laten zien.
+Een afbeelding in HTML: het \textbf{src} attribuut verwijst naar de afbeelding die je wilt laten zien.
 \begin{lstlisting}[language=HTML]
-<img src="plaatje.jpg" />
+<img src="Niels.jpg" width="100" height="100" alt="Portret van een webdesigner" title="Niels"/>
 \end{lstlisting}
 
 \subsection*{Links}
-Linkjes werken op de volgende manier. Eerst geef je in de A tag aan naar welke pagina je wilt linken met het href attribuut. Daarna plaats je tussen de begin en eind tag tekst of een afbeelding waar je op wilt klikken. In de onderstaande code is dat `Contactpagina'.
+Linkjes werken op de volgende manier. Eerst geef je in de A tag aan naar welke pagina je wilt linken met het href attribuut. Daarna plaats je tussen de begin en eind tag \textbf{tekst} of een \textbf{afbeelding} waar je op wilt klikken. In de onderstaande code is dat `Contactpagina'.
 
 \begin{lstlisting}[language=HTML]
 <a href="contact.html">Contactpagina</a>
@@ -338,7 +332,7 @@ Een formulier bevat invulvelden met labels en knoppen. Een formulier kan met POS
 \subsection*{CSS selectoren}
 In CSS selecteer je de HTML elementen die je wilt vormgeven en vervolgens geef je aan hoe die elementen vormgegeven moeten worden.
 
-\noindent Selecteren op TAG
+\noindent Selecteren op \underline{tag}
 \begin{lstlisting}
 body {
 }
@@ -346,7 +340,7 @@ div {
 }
 \end{lstlisting}
 
-\noindent Selecteren op class (een class mag meerdere keren voorkomen op een HTML pagina)
+\noindent Selecteren op \underline{class} (een class mag meerdere keren voorkomen op een HTML pagina)
 \begin{lstlisting}
 .menu-item {
 }
@@ -356,7 +350,7 @@ div {
 <div class="menu-item"></div>
 \end{lstlisting}
 
-\noindent Selecteren op id (een id mag slechts een keer voorkomen op een pagina)
+\noindent Selecteren op \underline{id} (een id mag slechts een keer voorkomen op een pagina)
 \begin{lstlisting}
 #header {
 }
@@ -366,13 +360,13 @@ div {
 <div id="header"></div>
 \end{lstlisting}
 
-\noindent Selecteren op type en id (een div met het id header)
+\noindent Selecteren op \underline{type en id} (een div met het id header)
 \begin{lstlisting}
 div#header {
 }
 \end{lstlisting}
 
-\noindent Selecteren op type en class (alle divs met de klasse menu-item)
+\noindent Selecteren op \underline{type en class} (alle divs met de klasse menu-item)
 \begin{lstlisting}
 div.menu-item {
 }
@@ -387,66 +381,13 @@ Achtergrondkleur, font kleur
 }
 \end{lstlisting}
 
-\subsection*{Padding}
-De ruimte die aan de \underline{binnenkant} wordt vrijgehouden.
-\begin{lstlisting}
-#inhoud {
-	padding-top: 10px; 
-	/* alleen bovenaan 10px */
-}
-\end{lstlisting}
-\noindent Of:
-\begin{lstlisting}
-#inhoud {
-	padding: 10px; 
-	/* rondom 10px */
-}
-\end{lstlisting}
-\noindent Of:
-\begin{lstlisting}
-#inhoud {
-	padding: 10px 0px 15px 0px; 
-	/* top, right, bottom, left */
-}
-\end{lstlisting}
-
-\subsection*{Margin}
-De ruimte die aan de \underline{buitenkant} wordt vrijgehouden. Zie padding.
-\begin{lstlisting}
-	margin-top: 10px; 
-	/* alleen bovenaan 10px */
-	
-	margin: 10px; 
-	/* of rondom 10px */
-	
-	margin: 10px 0px 15px 0px; 
-	/* of top, right, bottom, left */
-\end{lstlisting}
-
-\subsection*{Borders}
-Sommige elementen, zoals DIV'jes kunnen ook worden voorzien van een border.
-\begin{lstlisting}
-div#sidebar {
-	border-width: 1px;
-	border-style: dashed;
-	border-color: black;
-}
-\end{lstlisting}
-
-\noindent Of geen borders:
-
-\begin{lstlisting}
-div#sidebar {
-	border: none;
-}
-\end{lstlisting}
-
 \subsection*{Afmetingen}
+De afmetingen van de \underline{inhoud} van een element, dus niet de totale afmetingen. Totale afmeting = width + padding + border + margin.
 In pixels:
 \begin{lstlisting}
 #inhoud {
 	width:300px;
-	height: 400px;
+	height:400px;
 }
 \end{lstlisting}
 
@@ -455,6 +396,52 @@ In pixels:
 #inhoud {
 	width:50%;
 	height:20%;
+}
+\end{lstlisting}
+
+\subsection*{Padding}
+De ruimte die aan de \underline{binnenkant} wordt vrijgehouden.
+\begin{lstlisting}
+#inhoud {
+	/* alleen bovenaan 10px */
+	padding-top: 10px; 
+
+	/* of rondom 10px */
+	padding: 10px; 
+
+	/* of top, right, bottom, left */
+	padding: 10px 0px 15px 0px; 
+}
+\end{lstlisting}
+
+\subsection*{Margin}
+De ruimte die aan de \underline{buitenkant} wordt vrijgehouden.
+\begin{lstlisting}
+	/* alleen bovenaan 10px */
+	margin-top: 10px; 
+	
+	/* of rondom 10px */
+	margin: 10px; 
+	
+	/* of top, right, bottom, left */
+	margin: 10px 0px 15px 0px; 
+\end{lstlisting}
+
+\subsection*{Borders}
+Sommige elementen, zoals div'jes kunnen ook worden voorzien van een rand.
+\begin{lstlisting}
+div#sidebar {
+	border-width: 1px;
+	border-style: dashed;
+	border-color: black;
+}
+\end{lstlisting}
+
+\noindent Of helemaal geen borders:
+
+\begin{lstlisting}
+div#sidebar {
+	border:none;
 }
 \end{lstlisting}
 
@@ -484,17 +471,16 @@ Met een clear both krijg je een div onder de andere divs.
 \begin{lstlisting}
 div#container {
 	width:850px;
-	min-heigth:720px;
-	margin-left:auto;
-	margin-right:auto;
+	margin: 0 auto;
 }
 \end{lstlisting}
 
 \subsection*{Achtergrondafbeelding}
+Een achtergrond afbeelding op een element. Je kunt o.a. aangeven welke afbeelding en hoe de afbeelding herhaald moet worden.
 \begin{lstlisting}
 div#header {
-	height:140px;
 	background-image:url(achtergrond.jpg);
+	background-repeat:none;
 }
 \end{lstlisting}
 
@@ -518,9 +504,9 @@ CSS style:
 Een HTML pagina is een boomstructuur van tags. Je kunt zeggen dat iedere tag (behalve de HTML tag) een kind is van een andere tag. CSS biedt veel mogelijkheden om specifieke tags te selecteren op basis van deze structuur. Bijvoorbeeld alle h1 elementen binnen een div met een bepaalde class. Of alle oneven list items.
 
 \subsection*{Selectie van childs en descendants}
-Een descendants selector gebruik je voor het selecteren van alle elementen binnen een ander element (meerdere niveaus diep).
+Een \textbf{descendants} selector gebruik je voor het selecteren van alle elementen binnen een ander element (meerdere niveaus diep).
 
-Een child selector gebruik je voor het selecteren van directe kinderen binnen een element (een niveau diep).\\
+Een \textbf{child} selector gebruik je voor het selecteren van directe kinderen binnen een element (een niveau diep).\\
 \noindent Voorbeeld HTML:
 \begin{lstlisting}
 	<div class="kolom">
@@ -549,6 +535,7 @@ Er zijn veel sites met informatie over HTML en CSS, hier een paar voorbeelden:
 \begin{itemize}
 	\item Lorem Ipsum generator \url{http://bit.ly/3Ukgp}
 	\item Dabblet \url{dabblet.com}
+	\item CodePen \url{codepen.io}
 	\item Mozilla Developers Network \url{http://goo.gl/UzgJQ}
 	\item Moz. HTML reference \url{http://goo.gl/JRZ0P}
 	\item Moz. CSS reference \url{http://goo.gl/EeWJe}
