@@ -1,1 +1,3 @@
-Deze cheatsheet bevat de meest belangrijke HTML tags en CSS eigenschappen voor het vak webdesign in het eerste jaar.
+HTML & CSS Cheatsheet
+=====================
+Deze cheatsheet bevat de meest gebruikte HTML tags en CSS eigenschappen voor het vak webdesign.
