@@ -146,7 +146,7 @@
 \rhead{}
 \lhead{}
 \chead{}
-\lfoot{Versie 0.6 - Niels Doorn \copyright~2012}
+\lfoot{Versie 0.7 - Niels Doorn \copyright~2013}
 \cfoot{\url{http://www.nielsdoorn.nl}}
 \rfoot{\thepage\ van \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
@@ -166,7 +166,7 @@
 \begin{multicols*}{4}
 
 \section*{HTML \& CSS Cheatsheet}
-Deze cheatsheet bevat de meest belangrijke HTML tags en CSS eigenschappen voor het vak webdesign in het eerste jaar.
+Deze cheatsheet bevat de meest gebruikte HTML tags en CSS eigenschappen voor het vak webdesign.
 
 \section*{HTML}
 HTML vormt de structuur en de inhoud van een pagina en bestaat uit tags die door de browser worden begrepen. Iedere tag heeft zo z'n eigen specifieke eigenschappen en functionaliteit. Een tag staat tussen scherpe haken < >, bijvoorbeeld een <div> tag. Een aantal tags komen altijd voor in een pagina en sommige tags gebruik je alleen als je ze nodig hebt. Iedere tag die je opent moet je ook weer afsluiten. Dat kan op twee manieren:
@@ -185,11 +185,19 @@ BODY tag: Inhoud van de pagina
 
 \subsection*{Een CSS stylesheet koppelen}
 Aan de HTML pagina kan je een CSS stylesheet koppelen voor de vormgeving.\\
-\noindent Plaats binnen de HEAD tags:
+\noindent Plaats binnen de HEAD tag:
 \begin{lstlisting}[language=HTML]
 	<link href="style.css" rel="stylesheet" />
 \end{lstlisting}
 \noindent Gebruik in principe \underline{nooit} inline CSS maar \underline{altijd} een aparte stylesheet in een apart bestand.
+
+\subsection*{Een JavaScript bestand koppelen}
+Aan de HTML pagina kan je een of meerdere JavaScript bestanden koppelen.\\
+\noindent Plaats binnen de HTML tag:
+\begin{lstlisting}[language=HTML]
+	<script src="mijnScript.js" />
+\end{lstlisting}
+\noindent Gebruik zoveel mogelijk JavaScript in een aparte bestanden.
 
 \subsection*{Commentaar}
 Commentaar in HTML:
@@ -346,7 +354,7 @@ div {
 }
 \end{lstlisting}
 \noindent Bijbehorende HTML code:
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <div class="menu-item"></div>
 \end{lstlisting}
 
@@ -356,7 +364,7 @@ div {
 }
 \end{lstlisting}
 \noindent Bijbehorende HTML code:
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <div id="header"></div>
 \end{lstlisting}
 
@@ -445,25 +453,38 @@ div#sidebar {
 }
 \end{lstlisting}
 
-\subsection*{Positionering}
-Float gebruik je o.a. om een DIV naast een andere DIV te plaatsen
+\subsection*{Box model border box}
+Breedte inclusief padding, border en margin:
 \begin{lstlisting}
-#inhoud {
-	float:left;
-}
-\end{lstlisting}
-\noindent Of:
-\begin{lstlisting}
-#inhoud {
-	float:right;
+* { 
+	moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
 }
 \end{lstlisting}
 
-\subsection*{Kolommen omhoog pushen}
-Met een clear both krijg je een div onder de andere divs.
+\subsection*{Kolommen}
+Meerdere kolommen naast elkaar
+\begin{lstlisting}[language=HTML]
+<div id="wrap">
+	<div id="inhoud"></div>
+	<div id="sidebar"></div>
+</div>
+\end{lstlisting}
+
 \begin{lstlisting}
-#footer {
-	clear:both;
+#wrap {
+	display:table;
+}
+
+#inhoud {
+	display: table-cell;
+	width: 70%;
+}
+
+#sidebar {
+	display: table-cell;
+	width: 30%;
 }
 \end{lstlisting}
 
@@ -486,7 +507,7 @@ div#header {
 
 \subsection*{UL als menu stylen}
 HTML met een UL als menu:
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <div id="menu"> 
   <ul>
 	<li class="selected"><a href="index.html">Home</a></li>
@@ -508,7 +529,7 @@ Een \textbf{descendants} selector gebruik je voor het selecteren van alle elemen
 
 Een \textbf{child} selector gebruik je voor het selecteren van directe kinderen binnen een element (een niveau diep).\\
 \noindent Voorbeeld HTML:
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 	<div class="kolom">
 		<h1>Agenda</h1>
 		<div class="widget">

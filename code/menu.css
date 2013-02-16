@@ -5,13 +5,17 @@ div#menu ul {
 }
 
 div#menu li {
-	float: left;
+	display: inline-block;
 	margin-left: 10px;
 	padding: 10px;
 } 
 
 div#menu a {
 	text-decoration:none;
+}
+
+div#menu li:hover a {
+	text-decoration:underline;
 }
 
 div#menu li.selected {
