@@ -24,11 +24,11 @@
 \usepackage{textcase}
 \usepackage{textcomp}
 \usepackage{ulem}
-\usepackage[usenames,dvips]{color}
 \usepackage{suffix}
 \usepackage{makeidx}
 \usepackage[pagestyles]{titlesec}
 \usepackage{titletoc}
+\usepackage{xcolor}
 %
 %%%%%%%%%%%%%%%%%%
 % Two font alternatives:
@@ -80,6 +80,20 @@
 \usepackage{ifpdf}
 
 \definecolor{lightgray}{rgb}{0.01,0.01,0.01}
+\usepackage{color}
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+%\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{orange}{rgb}{1,0.45,0.13}		
+\definecolor{olive}{rgb}{0.17,0.59,0.20}
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
+\definecolor{purple}{rgb}{0.38,0.18,0.81}
+\definecolor{lightblue}{rgb}{0.1,0.57,0.7}
+\definecolor{lightred}{rgb}{1,0.4,0.5}
+\usepackage{upquote}
 
 \title{HTML en CSS Cheatsheet}
 \author{Niels Doorn}
@@ -94,6 +108,133 @@
 \titleformat{\subsection}{\sffamily\mdseries\slshape}
             {\Large\thesubsection}{.7em}{\Large}[{\titlerule[0.25pt]}]
 
+\lstdefinelanguage{JavaScript}{
+  basicstyle=\footnotesize\ttfamily,
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, for, Array, var, const, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this, querySelector, innerHTML, style, window, document},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+% CSS
+\lstdefinelanguage{CSS}{
+  keywords={color,background-image:,background-color:,margin:,padding:,font:,weight:,display:,position:,top,left,right,bottom,list,style,border:,size,white,space,min,width:, transition:, height:, transform:, transition-property:, transition-duration:, transition-timing-function, background-color:, margin-top:, margin-bottom:, margin-left:, margin-right:,list-style:, text-decoration:, text-decoration:, background-repeat:, box-sizing:, -webkit-box-sizing:, -moz-box-sizing:, color:, padding-top:, padding-bottom:,padding-left:,padding-right:,font-size:},	
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  alsoletter={:},
+  alsodigit={-}
+}
+
+\lstdefinelanguage{HTML5}{
+  language=html,
+  sensitive=true,	
+  alsoletter={<>=-},	
+  morecomment=[s]{<!-}{-->},
+  tag=[s],
+  otherkeywords={
+  % General
+  >,
+  % Standard tags
+	<!DOCTYPE,
+	</b, </i, </em, </strong, </q, </blockquote, </sup, </sub, <b, <i, <em, <strong, <q, <blockquote, <sup, <sub,
+  </html, <html, </body, <body, <head, <title, </title, <style, </style, <link, </head, <meta, />,
+	% body
+	</body, <body,
+	% Divs
+	</div, <div, </div>, 
+	% Paragraphs
+	</p, <p, </p>, </hr, </br, <hr, <br,
+	%lists
+	</ul, </li, <li, <ul, <link, </ol, <ol, </dt, </dl, </dd, <dt, <dl, <dd,
+	% headings
+	</h1, </h2, </h3, </h4, </h5, </h6, <h1, <h2, <h3, <h4, <h5, <h6,
+	% forms
+	</form, </input, </textarea, </label, </input, <form, <input, <textarea, <label,
+	% opmaak
+	% scripts
+	</script, <script,
+  % More tags...
+  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>, <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article
+  },
+  ndkeywords={
+  % General
+  =,
+  % HTML attributes
+  charset=, src=, id=, width=, height=, style=, type=, rel=, href=,
+  % SVG attributes
+  fill=, attributeName=, begin=, dur=, from=, to=, poster=, controls=, x=, y=, repeatCount=, xlink:href=,
+  % properties
+  margin:, padding:, background-image:, border:, top:, left:, position:, width:, height:, margin-top:, margin-bottom:, font-size:, line-height:,
+	% CSS3 properties
+  transform:, -moz-transform:, -webkit-transform:,
+  animation:, -webkit-animation:,
+  transition:,  transition-duration:, transition-property:, transition-timing-function:,
+  }
+}
+
+\lstdefinestyle{htmlcssjs} {%
+  % General design
+%  backgroundcolor=\color{editorGray},
+  basicstyle={\footnotesize\ttfamily},   
+  frame=b,
+  % line-numbers
+  xleftmargin={0.75cm},
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,	
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  % Code
+  language=HTML5,
+  alsolanguage=JavaScript,
+  alsodigit={.:;},	
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  % German umlauts
+  literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+}
+
+
+\lstloadlanguages{% Check Dokumentation for further languages ...
+	%[Visual]Basic
+	%Pascal
+  %C
+	%C++
+	%XML,
+	%HTML,
+	%Java,
+	%PHP,
+	HTML5,
+	CSS
+}
+
 
 \lstset{
         basicstyle=\footnotesize\ttfamily, % Standardschrift
@@ -104,14 +245,14 @@
         tabsize=2,                  % Groesse von Tabs
         extendedchars=true,         %
         breaklines=true,            % Zeilen werden Umgebrochen
-        keywordstyle=\bfseries,
+        %keywordstyle=\bfseries,
 		%commentstyle=\em\color{gray},
         frame=trlb,         
 %        keywordstyle=[1]\textbf,    % Stil der Keywords
 %        keywordstyle=[2]\textbf,    %
 %        keywordstyle=[3]\textbf,    %
 %        keywordstyle=[4]\textbf,   \sqrt{\sqrt{}} %
-        stringstyle=\bfseries\color{gray}, % Farbe der String
+%        stringstyle=\bfseries\color{gray}, % Farbe der String
         showspaces=false,           % Leerzeichen anzeigen ?
         showtabs=false,             % Tabs anzeigen ?
         xleftmargin=0pt,
@@ -119,18 +260,28 @@
         framexrightmargin=0pt,
         framexbottommargin=0pt,
         %backgroundcolor=\color{lightgray},
-        showstringspaces=false      % Leerzeichen in Strings anzeigen ?        
+			  %stringstyle=\color{black},
+			  %identifierstyle=\color{blue},
+			  %keywordstyle=\color{cyan},
+        showstringspaces=false,      % Leerzeichen in Strings anzeigen ?
+			  % Code design
+			  identifierstyle=\color{black},
+			  keywordstyle=\color{blue}\bfseries,
+			  ndkeywordstyle=\color{editorGreen}\bfseries,
+			  stringstyle=\color{editorOcher}\ttfamily,
+			  commentstyle=\color{brown}\ttfamily,
+			  % Code
+			  language=HTML5,
+			  alsolanguage=JavaScript,
+			  alsodigit={.:;},	
+			  tabsize=2,
+			  showtabs=false,
+			  showspaces=false,
+			  showstringspaces=false,
+			  extendedchars=true,
+			  breaklines=true 
 }
-\lstloadlanguages{% Check Dokumentation for further languages ...
-         %[Visual]Basic
-         %Pascal
-         %C
-         %C++
-         XML,
-         HTML,
-         Java,
-         PHP
-}
+
 
 \hypersetup{
 	pdfauthor = {Niels Doorn},
@@ -146,12 +297,11 @@
 \rhead{}
 \lhead{}
 \chead{}
-\lfoot{Versie 0.7 - Niels Doorn \copyright~2013}
+\lfoot{Versie \today - Niels Doorn \copyright~\the\year}
 \cfoot{\url{http://www.nielsdoorn.nl}}
 \rfoot{\thepage\ van \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-
 
 \usepackage{pst-barcode}
 
@@ -169,8 +319,8 @@
 Deze cheatsheet bevat de meest gebruikte HTML tags en CSS eigenschappen voor het vak webdesign.
 
 \section*{HTML}
-HTML vormt de structuur en de inhoud van een pagina en bestaat uit tags die door de browser worden begrepen. Iedere tag heeft zo z'n eigen specifieke eigenschappen en functionaliteit. Een tag staat tussen scherpe haken < >, bijvoorbeeld een <div> tag. Een aantal tags komen altijd voor in een pagina en sommige tags gebruik je alleen als je ze nodig hebt. Iedere tag die je opent moet je ook weer afsluiten. Dat kan op twee manieren:
-\begin{lstlisting}[language=HTML]
+HTML vormt de structuur en de inhoud van een pagina en bestaat uit tags die door de browser worden begrepen. Iedere tag heeft zo z'n eigen specifieke eigenschappen en functionaliteit. Een tag staat tussen scherpe haken \texttt{< >} bijvoorbeeld een \texttt{<div>} tag. Een aantal tags komen altijd voor in een pagina en sommige tags gebruik je alleen als je ze nodig hebt. Iedere tag die je opent moet je ook weer afsluiten. Dat kan op twee manieren:
+\begin{lstlisting}[language=HTML5]
 	<!-- openen en later sluiten -->
 	<div> </div>
 	<!-- openen en direct sluiten -->
@@ -186,7 +336,7 @@ BODY tag: Inhoud van de pagina
 \subsection*{Een CSS stylesheet koppelen}
 Aan de HTML pagina kan je een CSS stylesheet koppelen voor de vormgeving.\\
 \noindent Plaats binnen de HEAD tag:
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 	<link href="style.css" rel="stylesheet" />
 \end{lstlisting}
 \noindent Gebruik in principe \underline{nooit} inline CSS maar \underline{altijd} een aparte stylesheet in een apart bestand.
@@ -194,14 +344,14 @@ Aan de HTML pagina kan je een CSS stylesheet koppelen voor de vormgeving.\\
 \subsection*{Een JavaScript bestand koppelen}
 Aan de HTML pagina kan je een of meerdere JavaScript bestanden koppelen.\\
 \noindent Plaats binnen de HTML tag:
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 	<script src="mijnScript.js" />
 \end{lstlisting}
 \noindent Gebruik zoveel mogelijk JavaScript in een aparte bestanden.
 
 \subsection*{Commentaar}
 Commentaar in HTML:
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <!--
 commentaar
 -->
@@ -209,7 +359,7 @@ commentaar
 
 \subsection*{Tekst}
 Headings:
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <h1>Titel niveau 1</h1>
 <h2>Titel niveau 2</h2>
 ...
@@ -217,7 +367,7 @@ Headings:
 \end{lstlisting}
 
 \noindent Tekstopmaak:
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <b>Vetgedruk</b>
 <i>Schuingedrukt</i>
 <strong>Belangrijk</strong>
@@ -229,7 +379,7 @@ CO<sub>2</sub> subscript
 \end{lstlisting}
 
 \noindent Tekstindeling:
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <p>Paragraaf</p>
 <br /> Nieuwe regel
 <hr /> Horizontale lijn
@@ -237,20 +387,20 @@ CO<sub>2</sub> subscript
 
 \subsection*{Pagina-indeling}
 Div'jes gebruik je om de inhoud van je pagina op te delen in gebieden. Vervolgens kun je die met CSS een plaats, afmeting en andere eigenschappen geven. 
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <div>Een gebied op een pagina, bijvoorbeeld een kolom</div>
 \end{lstlisting}
 
 \subsection*{Afbeeldingen}
 Een afbeelding in HTML: het \textbf{src} attribuut verwijst naar de afbeelding die je wilt laten zien.
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <img src="Niels.jpg" width="100" height="100" alt="Portret van een webdesigner" title="Niels"/>
 \end{lstlisting}
 
 \subsection*{Links}
 Linkjes werken op de volgende manier. Eerst geef je in de A tag aan naar welke pagina je wilt linken met het href attribuut. Daarna plaats je tussen de begin en eind tag \textbf{tekst} of een \textbf{afbeelding} waar je op wilt klikken. In de onderstaande code is dat `Contactpagina'.
 
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <a href="contact.html">Contactpagina</a>
 \end{lstlisting}
 
@@ -259,7 +409,7 @@ In HTML zijn er twee belangrijke soorten lijstjes. Lijstjes die genummerd zijn (
 
 \subsubsection*{Ongeordende lijsten}
 Unordered list (boodschappenlijstje): 
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <ul>
 	<li>Banaan</li>
 	<li>Aardbei</li>
@@ -269,7 +419,7 @@ Unordered list (boodschappenlijstje):
 
 \subsubsection*{Genummerde lijsten}
 Een ordered list (grootste steden ter wereld):
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <ol>
 	<li>Shanghai</li>
 	<li>Bombay</li>
@@ -281,7 +431,7 @@ Een ordered list (grootste steden ter wereld):
 
 \subsubsection*{Definitie lijsten}
 Minder vaak gebruikt maar ook handig is de lijst met definities:
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <dl>
 	<dt>Koffie</dt>
 		<dd>Het zwarte goud, onmisbaar voor goed functioneren docenten</dd>
@@ -294,7 +444,7 @@ Minder vaak gebruikt maar ook handig is de lijst met definities:
 \subsubsection*{Lijsten met meeerdere niveaus}
 Je kunt verschillende niveaus aanbrengen in lijstjes.
 
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <ul>
   <li>Koffie</li>
   <li>Thee
@@ -312,7 +462,7 @@ Formulieren gebruik je om gegevens van de gebruiker naar een website te versture
 
 Een formulier bevat invulvelden met labels en knoppen. Een formulier kan met POST en met GET worden verstuurd naar een URL.
 
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <form action="informatieaanvraag.php" method="post">
 	<label for="voornaam">Voornaam:</label>
 	<input type="text" name="voornaam" />
@@ -328,12 +478,12 @@ Een formulier bevat invulvelden met labels en knoppen. Een formulier kan met POS
 
 \section*{CSS}
 \subsection*{Begin van een CSS file}
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 @charset "utf-8";
 \end{lstlisting}
 
 \subsection*{Commentaar in CSS}
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 /* commentaar */
 \end{lstlisting}
 
@@ -341,7 +491,7 @@ Een formulier bevat invulvelden met labels en knoppen. Een formulier kan met POS
 In CSS selecteer je de HTML elementen die je wilt vormgeven en vervolgens geef je aan hoe die elementen vormgegeven moeten worden.
 
 \noindent Selecteren op \underline{tag}
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 body {
 }
 div {
@@ -349,40 +499,40 @@ div {
 \end{lstlisting}
 
 \noindent Selecteren op \underline{class} (een class mag meerdere keren voorkomen op een HTML pagina)
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 .menu-item {
 }
 \end{lstlisting}
 \noindent Bijbehorende HTML code:
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <div class="menu-item"></div>
 \end{lstlisting}
 
 \noindent Selecteren op \underline{id} (een id mag slechts een keer voorkomen op een pagina)
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 #header {
 }
 \end{lstlisting}
 \noindent Bijbehorende HTML code:
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=CSS]
 <div id="header"></div>
 \end{lstlisting}
 
 \noindent Selecteren op \underline{type en id} (een div met het id header)
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 div#header {
 }
 \end{lstlisting}
 
 \noindent Selecteren op \underline{type en class} (alle divs met de klasse menu-item)
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 div.menu-item {
 }
 \end{lstlisting}
 
 \subsection*{Kleuren}
 Achtergrondkleur, font kleur
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 #inhoud {
 	background-color: #0C9;
 	color: white;
@@ -392,24 +542,24 @@ Achtergrondkleur, font kleur
 \subsection*{Afmetingen}
 De afmetingen van de \underline{inhoud} van een element, dus niet de totale afmetingen. Totale afmeting = width + padding + border + margin.
 In pixels:
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 #inhoud {
-	width:300px;
-	height:400px;
+	width: 300px;
+	height: 400px;
 }
 \end{lstlisting}
 
 \noindent In procenten:
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 #inhoud {
-	width:50%;
-	height:20%;
+	width: 50%;
+	height: 20%;
 }
 \end{lstlisting}
 
 \subsection*{Padding}
 De ruimte die aan de \underline{binnenkant} wordt vrijgehouden.
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 #inhoud {
 	/* alleen bovenaan 10px */
 	padding-top: 10px; 
@@ -424,7 +574,7 @@ De ruimte die aan de \underline{binnenkant} wordt vrijgehouden.
 
 \subsection*{Margin}
 De ruimte die aan de \underline{buitenkant} wordt vrijgehouden.
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 	/* alleen bovenaan 10px */
 	margin-top: 10px; 
 	
@@ -437,7 +587,7 @@ De ruimte die aan de \underline{buitenkant} wordt vrijgehouden.
 
 \subsection*{Borders}
 Sommige elementen, zoals div'jes kunnen ook worden voorzien van een rand.
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 div#sidebar {
 	border-width: 1px;
 	border-style: dashed;
@@ -447,17 +597,17 @@ div#sidebar {
 
 \noindent Of helemaal geen borders:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 div#sidebar {
-	border:none;
+	border: none;
 }
 \end{lstlisting}
 
 \subsection*{Box model border box}
 Breedte inclusief padding, border en margin:
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 * { 
-	moz-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
 	-webkit-box-sizing: border-box; 
 	box-sizing: border-box;
 }
@@ -465,16 +615,16 @@ Breedte inclusief padding, border en margin:
 
 \subsection*{Kolommen}
 Meerdere kolommen naast elkaar
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <div id="wrap">
 	<div id="inhoud"></div>
 	<div id="sidebar"></div>
 </div>
 \end{lstlisting}
 
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 #wrap {
-	display:table;
+	display: table;
 }
 
 #inhoud {
@@ -489,25 +639,25 @@ Meerdere kolommen naast elkaar
 \end{lstlisting}
 
 \subsection*{Een DIV centreren}
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 div#container {
-	width:850px;
+	width: 850px;
 	margin: 0 auto;
 }
 \end{lstlisting}
 
 \subsection*{Achtergrondafbeelding}
 Een achtergrond afbeelding op een element. Je kunt o.a. aangeven welke afbeelding en hoe de afbeelding herhaald moet worden.
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 div#header {
-	background-image:url(achtergrond.jpg);
-	background-repeat:none;
+	background-image: url(achtergrond.jpg);
+	background-repeat: none;
 }
 \end{lstlisting}
 
 \subsection*{UL als menu stylen}
 HTML met een UL als menu:
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 <div id="menu"> 
   <ul>
 	<li class="selected"><a href="index.html">Home</a></li>
@@ -517,7 +667,7 @@ HTML met een UL als menu:
 </div>
 \end{lstlisting}
 CSS style:
-\lstinputlisting{code/menu.css}
+\lstinputlisting[language=CSS]{code/menu.css}
 
 \clearpage
 
@@ -529,7 +679,7 @@ Een \textbf{descendants} selector gebruik je voor het selecteren van alle elemen
 
 Een \textbf{child} selector gebruik je voor het selecteren van directe kinderen binnen een element (een niveau diep).\\
 \noindent Voorbeeld HTML:
-\begin{lstlisting}[language=HTML]
+\begin{lstlisting}[language=HTML5]
 	<div class="kolom">
 		<h1>Agenda</h1>
 		<div class="widget">
@@ -539,7 +689,7 @@ Een \textbf{child} selector gebruik je voor het selecteren van directe kinderen 
 \end{lstlisting}
 
 \noindent CSS:
-\begin{lstlisting}
+\begin{lstlisting}[language=CSS]
 /* child selector: selecteer alleen de agenda H1 in de kolom, niet de kalender H1 */
 .kolom > h1 {
 	color: blue;

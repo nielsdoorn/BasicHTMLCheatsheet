@@ -11,11 +11,11 @@ div#menu li {
 } 
 
 div#menu a {
-	text-decoration:none;
+	text-decoration: none;
 }
 
 div#menu li:hover a {
-	text-decoration:underline;
+	text-decoration: underline;
 }
 
 div#menu li.selected {
